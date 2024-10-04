@@ -1,4 +1,4 @@
-import 'package:pharmaco/model/cart.dart';
+import 'package:pharmaco/data/model/cart.dart';
 
 class User {
   late int id;
