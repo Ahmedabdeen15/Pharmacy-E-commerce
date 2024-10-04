@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:pharmaco/widget/password_widget.dart';
+import 'package:pharmaco/widget/text_input_widget.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +18,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: Scaffold(),
+      home:  Scaffold(),
     );
   }
 }
