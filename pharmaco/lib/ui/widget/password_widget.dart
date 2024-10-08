@@ -33,7 +33,7 @@ class _PasswordWidgetState extends State<PasswordWidget> {
                         setState(() {
                           hidePassword = !hidePassword;
                         });
-                      }, icon: hidePassword ? Icon(Icons.visibility_off): Icon(Icons.visibility)),
+                      }, icon: hidePassword ? const Icon(Icons.visibility_off): const Icon(Icons.visibility)),
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(20)),
                         hintText: 'password'),
