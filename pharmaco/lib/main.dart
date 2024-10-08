@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:pharmaco/ui/splash/splash_home.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +16,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home:  const SplashHome(),
+      home:  const Scaffold(),
     );
   }
 }

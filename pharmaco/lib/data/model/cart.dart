@@ -1,4 +1,4 @@
-import 'package:pharmaco/model/product.dart';
+import 'package:pharmaco/data/model/product.dart';
 
 class Cart {
   int id;
