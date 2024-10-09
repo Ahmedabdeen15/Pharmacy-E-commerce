@@ -9,17 +9,23 @@ class SplashHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AnimatedSplashScreen(
+      backgroundColor: AppColors.primaryColor.colors.first,
         splashIconSize: 300,
         pageTransitionType: PageTransitionType.bottomToTop,
-        backgroundColor: Colors.pink,
         animationDuration: Duration(seconds: 3),
         curve: Curves.bounceIn,
         centered: true,
         duration: 4000,
         splashTransition: SplashTransition.rotationTransition,
-        splash: Image.asset("assets/images/splash.png"),nextScreen: Scaffold());
+        splash:
+           Column(children: [ 
+          Image.asset("assets/logo.png"),
+          Padding(
+            padding: const EdgeInsets.all(15.0),
+            child: Text("Pharmaco",style: TextStyle(fontSize: 30,color: AppColors.white,fontWeight: FontWeight.bold)),
+          ),
+          ]),
+        nextScreen: Scaffold());
   }
 }
 
-class DB {
-}
