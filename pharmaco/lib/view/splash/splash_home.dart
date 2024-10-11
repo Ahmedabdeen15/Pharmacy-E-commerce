@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:pharmaco/app_colors.dart';
+import 'package:pharmaco/view/screens/home.dart';
 
 class SplashHome extends StatelessWidget {
   const SplashHome({super.key});
@@ -25,7 +26,7 @@ class SplashHome extends StatelessWidget {
             child: Text("Pharmaco",style: TextStyle(fontSize: 30,color: AppColors.white,fontWeight: FontWeight.bold)),
           ),
           ]),
-        nextScreen: Scaffold());
+        nextScreen: Home());
   }
 }
 
