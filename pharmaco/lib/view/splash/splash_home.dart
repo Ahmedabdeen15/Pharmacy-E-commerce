@@ -31,7 +31,7 @@ class SplashHome extends StatelessWidget {
                     fontWeight: FontWeight.bold)),
           ),
           ]),
-        nextScreen: HomeScreen(),
+        //nextScreen: HomeScreen(),
         nextScreen: const MainScreen());
 
   }
