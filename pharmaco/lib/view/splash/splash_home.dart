@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:pharmaco/app_colors.dart';
-import 'package:pharmaco/view/screens/home.dart';
+import 'package:pharmaco/view/screen/home_screen.dart';
 import 'package:pharmaco/view/screen/main_screen.dart';
 
 
@@ -31,9 +31,7 @@ class SplashHome extends StatelessWidget {
                     fontWeight: FontWeight.bold)),
           ),
           ]),
-        nextScreen: Home());
-
-        ]),
+        nextScreen: HomeScreen(),
         nextScreen: const MainScreen());
 
   }
