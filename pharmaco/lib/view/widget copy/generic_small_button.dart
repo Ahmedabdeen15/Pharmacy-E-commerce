@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:pharmaco/app_colors.dart';
 
-class GenericFlexibleButton extends StatelessWidget {
+class GenericSmallButton extends StatelessWidget {
   final String text;
-  final double minWidth;
-  final double minHeight;
-  final double fontSize;
+  final Gradient gradient;
+  final bool active;
   final VoidCallback onPressed;
-  const GenericFlexibleButton({
+  final bool category;
+  const GenericSmallButton({
     super.key,
     required this.text,
-    required this.minWidth,
-    required this.minHeight,
-    required this.fontSize,
+    this.gradient = AppColors.primaryColor,
+    required this.active,
+    required this.category,
     required this.onPressed,
   });
 
@@ -20,18 +20,18 @@ class GenericFlexibleButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       constraints: BoxConstraints(
-        minWidth: minWidth, // Minimum width
-        minHeight: minHeight, // Minimum height
+        minWidth: category ? 100 : 146, // Minimum width
+        minHeight: 41, // Minimum height
       ),
       decoration: BoxDecoration(
-        gradient: AppColors.primaryColor,
+        gradient: gradient,
         borderRadius: BorderRadius.circular(100.0),
       ),
       child: Padding(
         padding: const EdgeInsets.all(3.0), // Border padding
         child: Container(
           decoration: BoxDecoration(
-            color: Colors.transparent,
+            color: active ? Colors.transparent : Colors.white,
             borderRadius: BorderRadius.circular(100.0),
           ),
           child: ElevatedButton(
@@ -49,10 +49,10 @@ class GenericFlexibleButton extends StatelessWidget {
             ),
             child: Text(
               text,
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: fontSize,
-                fontWeight: FontWeight.w600,
+              style: const TextStyle(
+                color: Colors.black,
+                fontSize: 16.0,
+                fontWeight: FontWeight.w400,
               ),
               overflow: TextOverflow.ellipsis, // Add ellipsis if text overflows
             ),

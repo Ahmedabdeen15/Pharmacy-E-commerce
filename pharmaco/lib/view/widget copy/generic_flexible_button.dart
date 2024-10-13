@@ -52,7 +52,7 @@ class GenericFlexibleButton extends StatelessWidget {
               style: TextStyle(
                 color: Colors.white,
                 fontSize: fontSize,
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.w400,
               ),
               overflow: TextOverflow.ellipsis, // Add ellipsis if text overflows
             ),
