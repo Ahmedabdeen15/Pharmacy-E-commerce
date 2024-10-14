@@ -70,7 +70,7 @@ class BackButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return IconButton(
       icon: const Icon(Icons.arrow_back_ios_new_outlined,
-          size: 10, color: AppColors.white),
+          size: 20, color: AppColors.white),
       onPressed: () => Navigator.of(context).pop(),
     );
   }

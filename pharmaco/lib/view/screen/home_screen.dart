@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pharmaco/app_colors.dart';
+import 'package:pharmaco/view/screen/account_password/login_screen.dart';
+import 'package:pharmaco/view/screen/account_password/signup_screen.dart';
 import 'package:pharmaco/view/widget/generic_flexible_button.dart';
 import 'package:pharmaco/view/widget/generic_small_button.dart';
 
@@ -43,11 +45,15 @@ class HomeScreen extends StatelessWidget {
                       child: Text("Our mission is to provide reliable access to essential medications anytime, anywhere",style: TextStyle(color: AppColors.black,fontSize: 12),)),        
                   Padding(
                     padding: const EdgeInsets.only(top: 30),
-                    child: GenericFlexibleButton(text: "Log In", minWidth: MediaQuery.of(context).size.width*.5, minHeight: MediaQuery.of(context).size.height*.02, fontSize: 24, onPressed: (){}),
+                    child: GenericFlexibleButton(text: "Log In", minWidth: MediaQuery.of(context).size.width*.5, minHeight: MediaQuery.of(context).size.height*.02, fontSize: 24, onPressed: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => const LoginScreen() ));
+                    }),
                   ),
                    Padding(
                     padding: const EdgeInsets.only(top: 30),
-                    child: GenericFlexibleButton(text: "Sign Up", minWidth: MediaQuery.of(context).size.width*.5, minHeight: MediaQuery.of(context).size.height*.02, fontSize: 24, onPressed: (){}),
+                    child: GenericFlexibleButton(text: "Sign Up", minWidth: MediaQuery.of(context).size.width*.5, minHeight: MediaQuery.of(context).size.height*.02, fontSize: 24, onPressed: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => const SignupScreen() ));
+                    }),
                   )
                   
 

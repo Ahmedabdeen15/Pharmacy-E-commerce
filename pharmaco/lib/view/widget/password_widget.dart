@@ -14,10 +14,10 @@ class _PasswordWidgetState extends State<PasswordWidget> {
   @override
   Widget build(BuildContext context) {
 
-    return Scaffold(
-      body: 
+    return 
          SizedBox(
-                width: MediaQuery.of(context).size.width * .7,
+                width: MediaQuery.of(context).size.width * .8,
+               
                 child: Container(
                   decoration: const BoxDecoration(color: Color.fromARGB(255, 255, 255, 255)),
                   child: TextFormField(
@@ -33,17 +33,17 @@ class _PasswordWidgetState extends State<PasswordWidget> {
                         setState(() {
                           hidePassword = !hidePassword;
                         });
-                      }, icon: hidePassword ? const Icon(Icons.visibility_off): const Icon(Icons.visibility)),
+                      }, icon: hidePassword ?  Icon(Icons.visibility_off,color: AppColors.primaryColor.colors.first,):  Icon(Icons.visibility,color: AppColors.primaryColor.colors.first,)),
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(20)),
-                        hintText: 'password'),
+                        hintText: '***********'),
                         style: TextStyle(
                           foreground: Paint()..shader = AppColors.primaryColor.createShader(const Rect.fromLTWH(0, 0, 300, 70))
                         ),
                   ),
                 ),
                 
-              ),
+              
 
     );
   }
