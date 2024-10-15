@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pharmaco/app_colors.dart';
+import 'package:pharmaco/view/screen/account_password/reset_password_sccreen.dart';
 import 'package:pharmaco/view/screen/account_password/signup_screen.dart';
 import 'package:pharmaco/view/widget/custom_app_bar.dart';
 import 'package:pharmaco/view/widget/email_input_widget.dart';
@@ -38,7 +39,9 @@ class LoginScreen extends StatelessWidget {
                        Container(alignment:Alignment.topLeft ,
                      padding: EdgeInsets.only(left: 50,bottom: 10),child: Text("Password",style: TextStyle(color: AppColors.black,fontSize: 18,))),
                     PasswordWidget(),
-                    TextButton(onPressed: (){}, child:Container(alignment:Alignment.topRight ,
+                    TextButton(onPressed: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => const ResetPasswordSccreen() ));
+                    }, child:Container(alignment:Alignment.topRight ,
                      padding: EdgeInsets.only(right: 30,bottom: 20),child: Text("forget Password",style: TextStyle(color: AppColors.primaryColor.colors.first,fontSize: 10,))) )
                     ],
                   ),

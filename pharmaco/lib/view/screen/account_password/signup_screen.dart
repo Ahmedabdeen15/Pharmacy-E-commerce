@@ -35,7 +35,7 @@ class SignupScreen extends StatelessWidget {
                     Center(child: InputNameWidget(inputHint: "Ahmed Ali",)),
                     ],
                   ),
-                  SizedBox(height: 10,),
+                  SizedBox(height: 5,),
                   
                    Column(
                     children: [
@@ -44,7 +44,7 @@ class SignupScreen extends StatelessWidget {
                     PasswordWidget(),
                     ],
                   ),
-                   SizedBox(height: 10,),
+                   SizedBox(height: 5,),
                   Column(
                     children: [
                     Container(alignment:Alignment.topLeft ,
