@@ -25,7 +25,9 @@ class ProductSmallCard extends StatelessWidget {
             MaterialPageRoute(
                 builder: (context) => ProductDetailsScreen(
                       model: model,
-                      relatedProducts: relatedProducts, localCart: localCart, localWishlist: localWishlist,
+                      relatedProducts: relatedProducts,
+                      localCart: localCart,
+                      localWishlist: localWishlist,
                     )));
       },
       child: Card(
@@ -46,7 +48,7 @@ class ProductSmallCard extends StatelessWidget {
                   width: 100,
                   height: 100,
                   child: Image.network(
-                    model.urlToImg ?? "https://placehold.co/320x270/png",
+                    model.urlToImg ?? "https://placehold.co/100x100/png",
                     loadingBuilder: (BuildContext context, Widget child,
                         ImageChunkEvent? loadingProgress) {
                       if (loadingProgress == null) {
