@@ -1,12 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:pharmaco/data/model/cart.dart';
 import 'package:pharmaco/data/model/product.dart';
 import 'package:pharmaco/view/screen/product_details_screen.dart';
 
 class ProductSmallCard extends StatelessWidget {
-  const ProductSmallCard(
-      {super.key, required this.model, required this.relatedProducts});
+  const ProductSmallCard({
+    super.key,
+    required this.model,
+    required this.relatedProducts,
+    required this.localCart,
+    required this.localWishlist,
+  });
   final Product model;
   final List<Product> relatedProducts;
+  final Cart localCart;
+  final Cart localWishlist;
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +25,7 @@ class ProductSmallCard extends StatelessWidget {
             MaterialPageRoute(
                 builder: (context) => ProductDetailsScreen(
                       model: model,
-                      relatedProducts: relatedProducts,
+                      relatedProducts: relatedProducts, localCart: localCart, localWishlist: localWishlist,
                     )));
       },
       child: Card(

@@ -3,13 +3,19 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:pharmaco/app_colors.dart';
+import 'package:pharmaco/data/model/cart.dart';
 import 'package:pharmaco/data/model/product.dart';
 import 'package:pharmaco/view/widget/custom_app_bar.dart';
 import 'package:pharmaco/view/widget/product_widget.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
-
+  const HomeScreen({
+    super.key,
+    required this.localCart,
+    required this.localWishlist,
+  });
+  final Cart localCart;
+  final Cart localWishlist;
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
@@ -17,6 +23,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   List<Product> products = [];
   List<Product> filteredProducts = []; // This will hold the filtered products.
+
   TextEditingController searchController = TextEditingController();
   @override
   void initState() {
@@ -90,6 +97,8 @@ class _HomeScreenState extends State<HomeScreen> {
               return ProductWidget(
                 model: filteredProducts[index],
                 relatedProducts: products.sublist(0, 4),
+                localCart: widget.localCart,
+                localWishlist: widget.localWishlist,
               ); // Use the filtered list
             },
             itemCount: filteredProducts.length, // Use the filtered list count

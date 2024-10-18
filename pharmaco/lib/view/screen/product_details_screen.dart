@@ -1,15 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:pharmaco/app_colors.dart';
+import 'package:pharmaco/data/model/cart.dart';
 import 'package:pharmaco/data/model/product.dart';
+import 'package:pharmaco/view/screen/main_screen.dart';
 import 'package:pharmaco/view/widget/custom_app_bar.dart';
 import 'package:pharmaco/view/widget/generic_flexible_button.dart';
 import 'package:pharmaco/view/widget/product_small_card.dart';
 
 class ProductDetailsScreen extends StatefulWidget {
-  const ProductDetailsScreen(
-      {super.key, required this.model, required this.relatedProducts});
+  const ProductDetailsScreen({
+    super.key,
+    required this.model,
+    required this.relatedProducts,
+    required this.localCart,
+    required this.localWishlist,
+  });
   final Product model;
   final List<Product> relatedProducts;
+  final Cart localCart;
+  final Cart localWishlist;
   @override
   State<ProductDetailsScreen> createState() => _ProductDetailsScreenState();
 }
@@ -206,7 +215,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                           const SizedBox(height: 10),
 
                           SizedBox(
-                            height: 180, 
+                            height: 180,
                             child: ListView.builder(
                               scrollDirection: Axis.horizontal,
                               itemCount: widget.relatedProducts.length,
@@ -214,6 +223,8 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                                 return ProductSmallCard(
                                   model: widget.relatedProducts[index],
                                   relatedProducts: widget.relatedProducts,
+                                  localCart: widget.localCart,
+                                  localWishlist: widget.localWishlist,
                                 );
                               },
                             ),
@@ -234,7 +245,16 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                 minWidth: 142,
                 minHeight: 41,
                 fontSize: 20,
-                onPressed: () {},
+                onPressed: () {
+                  widget.localCart.addToList(widget.model, _currentValue);
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => const MainScreen(
+                        initialIndex: 1,
+                      ),
+                    ),
+                  );
+                },
               ),
               const SizedBox(width: 20),
               Container(
@@ -254,7 +274,16 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                       borderRadius: BorderRadius.circular(100.0),
                     ),
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        widget.localWishlist.addToList(widget.model, 1);
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => const MainScreen(
+                              initialIndex: 1,
+                            ),
+                          ),
+                        );
+                      },
                       style: ElevatedButton.styleFrom(
                         padding: const EdgeInsets.symmetric(
                           vertical: 12.0,

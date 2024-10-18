@@ -1,12 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:pharmaco/data/model/cart.dart';
 import 'package:pharmaco/data/model/product.dart';
 import 'package:pharmaco/view/screen/product_details_screen.dart';
 
 class ProductWidget extends StatefulWidget {
-  const ProductWidget({super.key, required this.model, required this.relatedProducts});
+  const ProductWidget({
+    super.key,
+    required this.model,
+    required this.relatedProducts,
+    required this.localCart,
+    required this.localWishlist,
+  });
   final Product model;
-    final List<Product> relatedProducts;
-
+  final List<Product> relatedProducts;
+  final Cart localCart;
+  final Cart localWishlist;
   @override
   State<ProductWidget> createState() => _ProductWidgetState();
 }
@@ -22,6 +30,8 @@ class _ProductWidgetState extends State<ProductWidget> {
                 builder: (context) => ProductDetailsScreen(
                       model: widget.model,
                       relatedProducts: widget.relatedProducts,
+                      localCart: widget.localCart,
+                      localWishlist: widget.localWishlist,
                     )));
       },
       child: Card(
