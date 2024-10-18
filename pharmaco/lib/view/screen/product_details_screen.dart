@@ -279,7 +279,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                         Navigator.of(context).push(
                           MaterialPageRoute(
                             builder: (context) => const MainScreen(
-                              initialIndex: 1,
+                              initialIndex: 2,
                             ),
                           ),
                         );
@@ -310,7 +310,9 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
               ),
             ],
           ),
-          const SizedBox(height: 16), // Add some spacing at the bottom
+          const SizedBox(
+            height: 20,
+          )
         ],
       ),
     );
