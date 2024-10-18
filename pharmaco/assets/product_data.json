@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "productName": "Advil (Ibuprofen)",
+    "description": "Nonsteroidal anti-inflammatory drug (NSAID) used to reduce fever and treat pain or inflammation.",
+    "price": 8.49,
+    "category": "Pain Relief",
+    "quantity": 120,
+    "urlToImg": "https://i5.walmartimages.com/seo/Advil-Pain-Relievers-and-Fever-Reducer-Coated-Tablets-200-Mg-Ibuprofen-200-Count_5460f400-2f95-4dac-8529-fa8b9cafb828.ee14afd6ebc68514e18b5a66fde6109b.jpeg"
+  },
+  {
+    "id": 2,
+    "productName": "Tylenol (Acetaminophen)",
+    "description": "Pain reliever and a fever reducer, commonly used to treat headaches, muscle aches, and fevers.",
+    "price": 6.99,
+    "category": "Pain Relief",
+    "quantity": 200,
+    "urlToImg": "https://s7d6.scene7.com/is/image/bjs/101517164"
+  },
+  {
+    "id": 3,
+    "productName": "Amoxicillin",
+    "description": "Penicillin-type antibiotic used to treat bacterial infections, such as pneumonia, bronchitis, and infections of the ears, nose, throat, and skin.",
+    "price": 12.5,
+    "category": "Antibiotics",
+    "quantity": 75,
+    "urlToImg": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqXAaWNMc_MDdwYIZ8cS3gSqvtv5PHG0UvWA&s"
+  },
+  {
+    "id": 4,
+    "productName": "Claritin (Loratadine)",
+    "description": "Antihistamine used to treat allergy symptoms such as runny nose, sneezing, and itchy eyes.",
+    "price": 9.99,
+    "category": "Allergy",
+    "quantity": 150,
+    "urlToImg": "https://m.media-amazon.com/images/I/81cO4IEDeHL.jpg"
+  },
+  {
+    "id": 5,
+    "productName": "Metformin",
+    "description": "Medication used to control blood sugar levels in people with type 2 diabetes.",
+    "price": 19.99,
+    "category": "Diabetes",
+    "quantity": 60,
+    "urlToImg": "https://images.ctfassets.net/4w8qvp17lo47/6vXaH4Y5Gw6AMEmASwGkc6/e6ff962a82811e4d160cc2d5c0d8b3cb/metformin-antidiabetic-tablets-science-photo-library.jpg"
+  },
+  {
+    "id": 6,
+    "productName": "Robitussin Cough Syrup",
+    "description": "Cough suppressant used to relieve coughs due to colds, bronchitis, and other respiratory conditions.",
+    "price": 7.49,
+    "category": "Cold & Flu",
+    "quantity": 100,
+    "urlToImg": "https://mypharma.imgix.net/assets/site/robitussindm15mg60ml.png?auto=compress%2Cformat&crop=focalpoint&domain=mypharma.imgix.net&fit=crop&fp-x=0.5&fp-y=0.5&h=1200&ixlib=php-3.3.1&usm=20&w=1200&s=206db939c7e5449a0b7cd5d02609263f"
+  },
+  {
+    "id": 7,
+    "productName": "Zithromax (Azithromycin)",
+    "description": "Antibiotic used to treat a wide variety of bacterial infections, including respiratory infections and skin infections.",
+    "price": 22.5,
+    "category": "Antibiotics",
+    "quantity": 40,
+    "urlToImg": "https://kuludonline.com/cdn/shop/files/21163.jpg?v=1703031730"
+  },
+  {
+    "id": 8,
+    "productName": "Aspirin",
+    "description": "Used to reduce fever, pain, and inflammation, and can also be used to reduce the risk of heart attack.",
+    "price": 5.49,
+    "category": "Pain Relief",
+    "quantity": 300,
+    "urlToImg": "https://medicinaonline.ae/cdn/shop/products/AspirinC_400MG_10Tabs_PI.jpg?v=1612788901"
+  },
+  {
+    "id": 9,
+    "productName": "Flonase (Fluticasone)",
+    "description": "Nasal spray used to treat allergy symptoms like nasal congestion, sneezing, and runny nose.",
+    "price": 13.99,
+    "category": "Allergy",
+    "quantity": 90,
+    "urlToImg": "https://i-cf65.ch-static.com/content/dam/cf-consumer-healthcare/bp-respiratory-flonase-sensimist/en_US/pages/homepage/sust-creative-image-v2.jpg?auto=format"
+  },
+  {
+    "id": 10,
+    "productName": "Omeprazole",
+    "description": "Proton pump inhibitor (PPI) used to treat acid reflux, heartburn, and stomach ulcers.",
+    "price": 11.25,
+    "category": "Digestive Health",
+    "quantity": 50,
+    "urlToImg": "https://i0.wp.com/post.medicalnewstoday.com/wp-content/uploads/sites/3/2019/07/a-packet-of-omeprazole-image-credit-siufaiho-2006.jpg?w=1155&h=1730"
+  }
+]

@@ -9,7 +9,7 @@ class Cart {
     this.id = 0,
   });
   void addToList(Product product, int quantity) {
-    if (product.quantity >= quantity) {
+    if (product.quantity! >= quantity) {
       products[product] = (products[product] ?? 0) + quantity;
     }
   }

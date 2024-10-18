@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:pharmaco/app_colors.dart';
+import 'package:pharmaco/view/screen/main_screen.dart';
 import 'package:pharmaco/view/widget/generic_flexible_button.dart';
 
 class AlarmLogout extends StatelessWidget {
-  const AlarmLogout({super.key});
+  const AlarmLogout({key});
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +34,13 @@ class AlarmLogout extends StatelessWidget {
             minHeight: MediaQuery.of(context).size.height * .01,
             fontSize: 15,
             onPressed: () {
-              Navigator.of(context).pop();
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const MainScreen(initialIndex: 3)),
+                //(Route<dynamic> route) => false,
+              );
+              //print(RegisterOrProfileScreen().isLogin);
             })
       ],
     );
