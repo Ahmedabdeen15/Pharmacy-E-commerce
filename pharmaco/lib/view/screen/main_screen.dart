@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pharmaco/app_colors.dart';
+import 'package:pharmaco/data/model/cart.dart';
 import 'package:pharmaco/view/screen/cart_screen.dart';
 import 'package:pharmaco/view/screen/contact_us_screen.dart';
 import 'package:pharmaco/view/screen/favorite_screen.dart';
@@ -9,13 +10,14 @@ import 'package:pharmaco/view/screen/register_or_profile_screen.dart';
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key, this.initialIndex = 0});
   final int initialIndex;
-
   @override
   State<MainScreen> createState() => _MainScreenState();
 }
 
 class _MainScreenState extends State<MainScreen> {
   late int _selectedIndex;
+  static Cart localCart = Cart();
+  static Cart localWishlist = Cart();
   @override
   void initState() {
     super.initState();
@@ -24,13 +26,16 @@ class _MainScreenState extends State<MainScreen> {
 
   // Screens to navigate between
   static final List<Widget> _screens = <Widget>[
-    HomeScreen(),
+    HomeScreen(
+      localCart: localCart,
+      localWishlist: localWishlist,
+    ),
     CartScreen(),
     FavoriteScreen(),
     RegisterOrProfileScreen(),
     ContactUsScreen()
   ];
-  void _onItemTapped(int index) {
+  void onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
     });
@@ -57,7 +62,7 @@ class _MainScreenState extends State<MainScreen> {
         ],
         currentIndex: _selectedIndex,
         selectedItemColor: AppColors.primaryColor.colors.first,
-        onTap: _onItemTapped,
+        onTap: onItemTapped,
       ),
     );
   }
