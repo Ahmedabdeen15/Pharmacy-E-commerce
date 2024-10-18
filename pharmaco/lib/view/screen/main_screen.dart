@@ -33,7 +33,10 @@ class _MainScreenState extends State<MainScreen> {
     CartScreen(
       localCart: localCart,
     ),
-    FavoriteScreen(),
+    FavoriteScreen(
+      localWishlist: localWishlist,
+      localCart: localCart,
+    ),
     RegisterOrProfileScreen(),
     ContactUsScreen()
   ];
