@@ -88,7 +88,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 crossAxisCount: 2),
             itemBuilder: (context, index) {
               return ProductWidget(
-                  model: filteredProducts[index]); // Use the filtered list
+                model: filteredProducts[index],
+                relatedProducts: products.sublist(0, 4),
+              ); // Use the filtered list
             },
             itemCount: filteredProducts.length, // Use the filtered list count
           ))

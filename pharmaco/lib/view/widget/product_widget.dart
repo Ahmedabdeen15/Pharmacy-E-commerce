@@ -3,8 +3,9 @@ import 'package:pharmaco/data/model/product.dart';
 import 'package:pharmaco/view/screen/product_details_screen.dart';
 
 class ProductWidget extends StatefulWidget {
-  const ProductWidget({super.key, required this.model});
+  const ProductWidget({super.key, required this.model, required this.relatedProducts});
   final Product model;
+    final List<Product> relatedProducts;
 
   @override
   State<ProductWidget> createState() => _ProductWidgetState();
@@ -20,6 +21,7 @@ class _ProductWidgetState extends State<ProductWidget> {
             MaterialPageRoute(
                 builder: (context) => ProductDetailsScreen(
                       model: widget.model,
+                      relatedProducts: widget.relatedProducts,
                     )));
       },
       child: Card(
