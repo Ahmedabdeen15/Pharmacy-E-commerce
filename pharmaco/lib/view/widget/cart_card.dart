@@ -11,8 +11,8 @@ class CartCard extends StatelessWidget {
   });
   final Product model;
   final int count;
-  final VoidCallback increment;
-  final VoidCallback decrement;
+  final void Function(Product) increment;
+  final void Function(Product) decrement;
 
   @override
   Widget build(BuildContext context) {
@@ -86,7 +86,7 @@ class CartCard extends StatelessWidget {
                   ),
                   child: IconButton(
                     icon: const Icon(Icons.remove),
-                    onPressed: decrement,
+                    onPressed: () => decrement(model),
                     iconSize: 16,
                   ),
                 ),
@@ -108,7 +108,7 @@ class CartCard extends StatelessWidget {
                   ),
                   child: IconButton(
                     icon: const Icon(Icons.add),
-                    onPressed: increment,
+                    onPressed: () => increment(model),
                     iconSize: 16,
                   ),
                 ),
