@@ -33,7 +33,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const CustomAppBarr(title: 'Wishlist'),
-      body: widget.localCart.products.isEmpty
+      body: widget.localWishlist.products.isEmpty
           ? const Center(
               child: Text(
                 "Wishlist is empty",
