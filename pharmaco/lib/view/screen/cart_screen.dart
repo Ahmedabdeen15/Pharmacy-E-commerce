@@ -68,27 +68,27 @@ class _CartScreenState extends State<CartScreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Text(
-                      "Total: \$${widget.localCart.totalPrices}",
+                      "Total: \$${widget.localCart.totalPrices.toStringAsFixed(2)}",
                       style: const TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.w600,
                       ),
                     ),
                     GenericFlexibleButton(
-                        text: "Buy Now",
-                        minWidth: 155,
-                        minHeight: 41,
-                        fontSize: 20,
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => CheckoutScreen(
-                                localCart: widget.localCart,
-                              ),
+                      text: "Buy Now",
+                      minWidth: 155,
+                      minHeight: 41,
+                      fontSize: 20,
+                      onPressed: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => CheckoutScreen(
+                              localCart: widget.localCart,
                             ),
-                          );
-                        })
+                          ),
+                        );
+                      },
+                    ),
                   ],
                 ),
                 const SizedBox(
