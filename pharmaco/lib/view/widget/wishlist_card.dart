@@ -69,7 +69,6 @@ class WishlistCard extends StatelessWidget {
                 ],
               ),
             ),
-            // Add a Spacer to push the button to the right
             const SizedBox(width: 10),
             Container(
               width: 32.0,
