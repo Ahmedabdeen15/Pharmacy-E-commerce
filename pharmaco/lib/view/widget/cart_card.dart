@@ -51,28 +51,30 @@ class CartCard extends StatelessWidget {
               ),
             ),
             const SizedBox(width: 14),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  model.productName != null
-                      ? (model.productName!.length > 15
-                          ? '${model.productName!.substring(0, 15)}..'
-                          : model.productName!)
-                      : 'medicine name',
-                  style: const TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w400,
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    model.productName != null
+                        ? (model.productName!.length > 15
+                            ? '${model.productName!.substring(0, 15)}..'
+                            : model.productName!)
+                        : 'medicine name',
+                    style: const TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w400,
+                    ),
                   ),
-                ),
-                Text(
-                  "\$ ${model.price}",
-                  style: const TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w700,
-                  ),
-                )
-              ],
+                  Text(
+                    "\$ ${model.price}",
+                    style: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  )
+                ],
+              ),
             ),
             const SizedBox(width: 10),
             Row(
