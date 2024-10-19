@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pharmaco/data/model/cart.dart';
 import 'package:pharmaco/data/model/product.dart';
+import 'package:pharmaco/view/screen/checkout_screen.dart';
 import 'package:pharmaco/view/widget/cart_card.dart';
 import 'package:pharmaco/view/widget/custom_app_bar.dart';
 import 'package:pharmaco/view/widget/generic_flexible_button.dart';
@@ -78,7 +79,16 @@ class _CartScreenState extends State<CartScreen> {
                         minWidth: 155,
                         minHeight: 41,
                         fontSize: 20,
-                        onPressed: () {})
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => CheckoutScreen(
+                                localCart: widget.localCart,
+                              ),
+                            ),
+                          );
+                        })
                   ],
                 ),
                 const SizedBox(
