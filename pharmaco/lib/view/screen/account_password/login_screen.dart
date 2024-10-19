@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pharmaco/app_colors.dart';
 import 'package:pharmaco/view/screen/account_password/reset_password_sccreen.dart';
 import 'package:pharmaco/view/screen/account_password/signup_screen.dart';
+import 'package:pharmaco/view/screen/main_screen.dart';
 import 'package:pharmaco/view/widget/custom_app_bar.dart';
 import 'package:pharmaco/view/widget/email_input_widget.dart';
 import 'package:pharmaco/view/widget/generic_flexible_button.dart';
@@ -111,6 +112,11 @@ void checkLogin(String inputEmail, String inputPassword, BuildContext context) a
                            String inputEmail = emailController.text;  // Get the email entered by the user
                             String inputPassword = passwordController.text;  // Get the password entered by the user
                           checkLogin(inputEmail, inputPassword, context);
+                           Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                       MainScreen()));
                         }),
                     Text(
                       "or sign up with",
