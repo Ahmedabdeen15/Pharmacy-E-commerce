@@ -11,8 +11,8 @@ class CartCard extends StatelessWidget {
   });
   final Product model;
   final int count;
-  final VoidCallback increment;
-  final VoidCallback decrement;
+  final void Function(Product) increment;
+  final void Function(Product) decrement;
 
   @override
   Widget build(BuildContext context) {
@@ -51,28 +51,30 @@ class CartCard extends StatelessWidget {
               ),
             ),
             const SizedBox(width: 14),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  model.productName != null
-                      ? (model.productName!.length > 15
-                          ? '${model.productName!.substring(0, 15)}..'
-                          : model.productName!)
-                      : 'medicine name',
-                  style: const TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w400,
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    model.productName != null
+                        ? (model.productName!.length > 15
+                            ? '${model.productName!.substring(0, 15)}..'
+                            : model.productName!)
+                        : 'medicine name',
+                    style: const TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w400,
+                    ),
                   ),
-                ),
-                Text(
-                  "\$ ${model.price}",
-                  style: const TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w700,
-                  ),
-                )
-              ],
+                  Text(
+                    "\$ ${model.price}",
+                    style: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  )
+                ],
+              ),
             ),
             const SizedBox(width: 10),
             Row(
@@ -86,7 +88,7 @@ class CartCard extends StatelessWidget {
                   ),
                   child: IconButton(
                     icon: const Icon(Icons.remove),
-                    onPressed: decrement,
+                    onPressed: () => decrement(model),
                     iconSize: 16,
                   ),
                 ),
@@ -108,7 +110,7 @@ class CartCard extends StatelessWidget {
                   ),
                   child: IconButton(
                     icon: const Icon(Icons.add),
-                    onPressed: increment,
+                    onPressed: () => increment(model),
                     iconSize: 16,
                   ),
                 ),
