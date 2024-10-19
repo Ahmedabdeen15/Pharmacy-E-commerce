@@ -2,9 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:pharmaco/app_colors.dart';
 
 class EmailInputWidget extends StatelessWidget {
-   EmailInputWidget({super.key,required this.inputHint});
+   // Default constructor with an optional controller
+  EmailInputWidget({super.key, required this.inputHint, TextEditingController? controller})
+      : controller = controller ?? TextEditingController();
+
+  // Named constructor for sign-up specifically
+  EmailInputWidget.forSignUp({super.key, required this.inputHint, required this.controller});
 final String inputHint;
-final emailController = TextEditingController();
+  final TextEditingController controller;
   @override
   Widget build(BuildContext context) {
     
@@ -20,7 +25,7 @@ final emailController = TextEditingController();
                     }
                     return 'Incorrect email';
                   },
-                   controller: emailController,
+                   controller: controller,
                     decoration: InputDecoration(
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(20)),

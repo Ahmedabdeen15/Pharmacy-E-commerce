@@ -7,10 +7,29 @@ import 'package:pharmaco/view/widget/email_input_widget.dart';
 import 'package:pharmaco/view/widget/generic_flexible_button.dart';
 import 'package:pharmaco/view/widget/password_widget.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+   LoginScreen({super.key});
 
+ final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  
+void checkLogin(String inputEmail, String inputPassword, BuildContext context) async {
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  String? storedEmail = prefs.getString('user_email');
+  String? storedPassword = prefs.getString('user_password');
+
+  if (inputEmail == storedEmail && inputPassword == storedPassword) {
+    // Login successful, proceed to the next screen
+    print('Login Successful');
+    // Navigate to the home screen or dashboard
+  } else {
+    // Login failed, show an error message
+    print('Login Failed');
+    // Show an error message to the user (e.g., using a snackbar or dialog)
+  }
+}
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,7 +64,7 @@ class LoginScreen extends StatelessWidget {
                             ))),
                     Center(
                         child: EmailInputWidget(
-                      inputHint: "example@example.com",
+                      inputHint: "example@example.com", controller: emailController,
                     )),
                   ],
                 ),
@@ -62,7 +81,7 @@ class LoginScreen extends StatelessWidget {
                               color: AppColors.black,
                               fontSize: 18,
                             ))),
-                    PasswordWidget(),
+                    PasswordWidget(controller: passwordController,),
                     TextButton(
                         onPressed: () {
                           Navigator.push(
@@ -88,7 +107,11 @@ class LoginScreen extends StatelessWidget {
                         minWidth: MediaQuery.of(context).size.width * .6,
                         minHeight: MediaQuery.of(context).size.height * .05,
                         fontSize: 20,
-                        onPressed: () {}),
+                        onPressed: () {
+                           String inputEmail = emailController.text;  // Get the email entered by the user
+                            String inputPassword = passwordController.text;  // Get the password entered by the user
+                          checkLogin(inputEmail, inputPassword, context);
+                        }),
                     Text(
                       "or sign up with",
                       style: TextStyle(fontSize: 15, color: AppColors.black),

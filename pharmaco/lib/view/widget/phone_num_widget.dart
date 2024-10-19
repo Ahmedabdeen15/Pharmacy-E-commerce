@@ -3,7 +3,13 @@ import 'package:flutter/services.dart';
 import 'package:pharmaco/app_colors.dart';
 
 class PhoneNumWidget extends StatelessWidget {
-  const PhoneNumWidget({super.key,required this.inputHint});
+   // Default constructor with optional controller
+   PhoneNumWidget({super.key, required this.inputHint, TextEditingController? controller})
+      : controller = controller ?? TextEditingController();
+
+  // Named constructor for sign-up use case
+  const PhoneNumWidget.forSignUp({super.key, required this.inputHint, required this.controller});
+  final TextEditingController controller;
 final String inputHint;
   @override
   Widget build(BuildContext context) {
@@ -12,6 +18,7 @@ final String inputHint;
                 child: Container(
                   decoration: const BoxDecoration(color: Color.fromARGB(255, 255, 255, 255)),
                   child: TextFormField(
+                     controller: controller,
                      inputFormatters:  <TextInputFormatter>[
         FilteringTextInputFormatter.digitsOnly,
          LengthLimitingTextInputFormatter(11), // Allow only digits

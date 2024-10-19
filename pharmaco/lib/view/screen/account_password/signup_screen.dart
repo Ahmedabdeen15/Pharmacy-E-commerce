@@ -10,13 +10,34 @@ import 'package:pharmaco/view/widget/input_name_widget.dart';
 import 'package:pharmaco/view/widget/password_widget.dart';
 import 'package:pharmaco/view/widget/phone_num_widget.dart';
 import 'package:intl/intl.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SignupScreen extends StatelessWidget {
   const SignupScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final TextEditingController dateC = TextEditingController();
+
+ final TextEditingController dateC = TextEditingController();
+    final TextEditingController nameController = TextEditingController();
+    final TextEditingController emailController = TextEditingController();
+    final TextEditingController phoneController = TextEditingController();
+    final TextEditingController passwordController = TextEditingController();
+
+    Future<void> _saveData() async {
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      await prefs.setString('name', nameController.text);
+      await prefs.setString('email', emailController.text);
+      await prefs.setString('phone', phoneController.text);
+      await prefs.setString('password', passwordController.text);
+      await prefs.setString('birthDate', dateC.text);
+    }
+
+    void saveUserData(String email, String password) async {
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  await prefs.setString('user_email', email);
+  await prefs.setString('user_password', password);
+}
     return Scaffold(
       appBar: const CustomAppBarr(title: "New Account"),
       body: SingleChildScrollView(
@@ -36,9 +57,9 @@ class SignupScreen extends StatelessWidget {
                               color: AppColors.black,
                               fontSize: 18,
                             ))),
-                    const Center(
-                        child: InputNameWidget(
-                      inputHint: "Ahmed Ali",
+                    Center(
+                        child: InputNameWidget.forSignUp(
+                      inputHint: "Ahmed Ali",controller:nameController ,
                     )),
                   ],
                 ),
@@ -55,7 +76,7 @@ class SignupScreen extends StatelessWidget {
                               color: AppColors.black,
                               fontSize: 18,
                             ))),
-                    const PasswordWidget(),
+                     PasswordWidget.forSignUp(controller: passwordController,),
                   ],
                 ),
                 const SizedBox(
@@ -72,8 +93,8 @@ class SignupScreen extends StatelessWidget {
                               fontSize: 18,
                             ))),
                     Center(
-                        child: EmailInputWidget(
-                      inputHint: "example@example.com",
+                        child: EmailInputWidget.forSignUp(
+                      inputHint: "example@example.com",controller: emailController,
                     )),
                   ],
                 ),
@@ -90,9 +111,9 @@ class SignupScreen extends StatelessWidget {
                               color: AppColors.black,
                               fontSize: 18,
                             ))),
-                    const Center(
-                        child: PhoneNumWidget(
-                      inputHint: "01228745632",
+                    Center(
+                        child: PhoneNumWidget.forSignUp(
+                      inputHint: "01228745632",controller: phoneController,
                     )),
                   ],
                 ),
@@ -177,12 +198,16 @@ class SignupScreen extends StatelessWidget {
                         minWidth: MediaQuery.of(context).size.width * .6,
                         minHeight: MediaQuery.of(context).size.height * .05,
                         fontSize: 20,
-                        onPressed: () {
+                        onPressed: () async {
+                          await _saveData();
+                           String email = emailController.text;  // Assuming you have a TextEditingController for email
+                           String password = passwordController.text;  // Assuming you have a TextEditingController for password
+                          saveUserData(email, password);
                           Navigator.push(
                               context,
                               MaterialPageRoute(
                                   builder: (context) =>
-                                      const VerifyYourAccountScreen()));
+                                       LoginScreen()));
                         }),
                     const Text(
                       "or sign up with",
@@ -245,7 +270,7 @@ class SignupScreen extends StatelessWidget {
                             Navigator.pushReplacement(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => const LoginScreen()));
+                                    builder: (context) =>  LoginScreen()));
                           },
                           child: Text("Sign Up",
                               style: TextStyle(

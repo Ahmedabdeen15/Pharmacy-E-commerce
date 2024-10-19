@@ -55,7 +55,7 @@ class EditProfileScreen extends StatelessWidget {
                           color: AppColors.black,
                           fontSize: 18,
                         ))),
-                const Center(
+                 Center(
                     child: InputNameWidget(
                   inputHint: "Mohamed Tharwat",
                 )),
@@ -93,7 +93,7 @@ class EditProfileScreen extends StatelessWidget {
                           color: AppColors.black,
                           fontSize: 18,
                         ))),
-                const Center(
+                 Center(
                     child: PhoneNumWidget(
                   inputHint: "01200000000",
                 )),

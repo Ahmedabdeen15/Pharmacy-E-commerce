@@ -2,8 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:pharmaco/app_colors.dart';
 
 class PasswordWidget extends StatefulWidget {
-  const PasswordWidget({super.key});
+   // Default constructor with optional controller
+   PasswordWidget({super.key, TextEditingController? controller})
+      : controller = controller ?? TextEditingController();
 
+  // Named constructor for sign-up use case
+  const PasswordWidget.forSignUp({super.key, required this.controller});
+ final TextEditingController controller;
   @override
   State<PasswordWidget> createState() => _PasswordWidgetState();
 }
@@ -21,6 +26,7 @@ class _PasswordWidgetState extends State<PasswordWidget> {
                 child: Container(
                   decoration: const BoxDecoration(color: Color.fromARGB(255, 255, 255, 255)),
                   child: TextFormField(
+                    controller: widget.controller,
                     validator: (password) {
                       if (password!.length < 8) {
                         return 'Weak password';

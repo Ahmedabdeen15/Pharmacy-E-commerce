@@ -27,9 +27,9 @@ class _DateWidgetState extends State<DateWidget> {
                     onTap: () async{
                             var date = await showDatePicker(
                                 context: context,
-                                firstDate: DateTime.now(),
-                                initialDate: DateTime.now(),
-                                lastDate: DateTime(2026));
+                                firstDate: DateTime(1950),
+                                initialDate: DateTime(2000),
+                                lastDate: DateTime.now());
                             var formatedDate = DateFormat.yMd().format(date!);
                             dateC.text = formatedDate.toString();
                     
