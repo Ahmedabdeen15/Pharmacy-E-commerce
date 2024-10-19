@@ -33,29 +33,39 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const CustomAppBarr(title: 'Wishlist'),
-      body: Column(
-        children: [
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsetsDirectional.all(20),
-              child: ListView.builder(
-                itemCount: widget.localWishlist.products.length,
-                itemBuilder: (context, index) {
-                  var temp =
-                      widget.localWishlist.products.entries.elementAt(index);
-                  return WishlistCard(
-                    model: temp.value.product,
-                    addToCart: addToCart,
-                  );
-                },
+      body: widget.localCart.products.isEmpty
+          ? const Center(
+              child: Text(
+                "Wishlist is empty",
+                style: TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.w500,
+                ),
               ),
+            )
+          : Column(
+              children: [
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsetsDirectional.all(20),
+                    child: ListView.builder(
+                      itemCount: widget.localWishlist.products.length,
+                      itemBuilder: (context, index) {
+                        var temp = widget.localWishlist.products.entries
+                            .elementAt(index);
+                        return WishlistCard(
+                          model: temp.value.product,
+                          addToCart: addToCart,
+                        );
+                      },
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: 30,
+                )
+              ],
             ),
-          ),
-          const SizedBox(
-            height: 30,
-          )
-        ],
-      ),
     );
   }
 }
