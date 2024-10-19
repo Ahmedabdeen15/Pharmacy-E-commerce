@@ -9,7 +9,6 @@ class CheckoutCard extends StatelessWidget {
   });
   final Product model;
   final int count;
-  
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +22,7 @@ class CheckoutCard extends StatelessWidget {
               width: 100,
               height: 100,
               child: Image.network(
-               "https://placehold.co/100x100/png",
+                model.urlToImg ?? "https://placehold.co/100x100/png",
                 loadingBuilder: (BuildContext context, Widget child,
                     ImageChunkEvent? loadingProgress) {
                   if (loadingProgress == null) {
@@ -48,43 +47,43 @@ class CheckoutCard extends StatelessWidget {
               ),
             ),
             const SizedBox(width: 14),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  model.productName != null
-                      ? (model.productName!.length > 15
-                          ? '${model.productName!.substring(0, 15)}..'
-                          : model.productName!)
-                      : 'medicine name',
-                  style: const TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w400,
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    model.productName != null
+                        ? (model.productName!.length > 15
+                            ? '${model.productName!.substring(0, 15)}..'
+                            : model.productName!)
+                        : 'medicine name',
+                    style: const TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w400,
+                    ),
                   ),
-                ),
-                Text(
-                  "\$ ${model.price}",
-                  style: const TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w700,
-                  ),
-                )
-              ],
+                  Text(
+                    "\$ ${model.price}",
+                    style: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  )
+                ],
+              ),
             ),
             const SizedBox(width: 10),
             Row(
               children: [
-               
                 const SizedBox(width: 10),
                 Text(
-                  '$count',
+                  'x $count',
                   style: const TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.w400,
                   ),
                 ),
                 const SizedBox(width: 10),
-              
               ],
             )
           ],
