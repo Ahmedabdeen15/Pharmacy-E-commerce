@@ -2,14 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:pharmaco/app_colors.dart';
 import 'package:pharmaco/view/screen/account_password/login_screen.dart';
-import 'package:pharmaco/view/screen/account_password/verify_your_account_screen.dart';
 import 'package:pharmaco/view/widget/custom_app_bar.dart';
+import 'package:pharmaco/view/widget/date_widget.dart';
 import 'package:pharmaco/view/widget/email_input_widget.dart';
 import 'package:pharmaco/view/widget/generic_flexible_button.dart';
 import 'package:pharmaco/view/widget/input_name_widget.dart';
 import 'package:pharmaco/view/widget/password_widget.dart';
 import 'package:pharmaco/view/widget/phone_num_widget.dart';
-import 'package:intl/intl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SignupScreen extends StatelessWidget {
@@ -45,11 +44,133 @@ class SignupScreen extends StatelessWidget {
           color: AppColors.white,
           child: Padding(
             padding: const EdgeInsets.only(left: 10.0, top: 10),
+
             child: Form(
               key: _formKey,
               child: Column(
                 children: [
                   Column(
+
+            child: Column(
+              children: [
+                Column(
+                  children: [
+                    Container(
+                        alignment: Alignment.topLeft,
+                        padding: const EdgeInsets.only(left: 50, bottom: 10),
+                        child: const Text("Full Name",
+                            style: TextStyle(
+                              color: AppColors.black,
+                              fontSize: 18,
+                            ))),
+                    Center(
+                        child: InputNameWidget.forSignUp(
+                      inputHint: "Ahmed Ali",controller:nameController ,
+                    )),
+                  ],
+                ),
+                const SizedBox(
+                  height: 5,
+                ),
+                Column(
+                  children: [
+                    Container(
+                        alignment: Alignment.topLeft,
+                        padding: const EdgeInsets.only(left: 50, bottom: 10),
+                        child: const Text("Password",
+                            style: TextStyle(
+                              color: AppColors.black,
+                              fontSize: 18,
+                            ))),
+                     PasswordWidget.forSignUp(controller: passwordController,),
+                  ],
+                ),
+                const SizedBox(
+                  height: 5,
+                ),
+                Column(
+                  children: [
+                    Container(
+                        alignment: Alignment.topLeft,
+                        padding: const EdgeInsets.only(left: 50, bottom: 10),
+                        child: const Text("Email ",
+                            style: TextStyle(
+                              color: AppColors.black,
+                              fontSize: 18,
+                            ))),
+                    Center(
+                        child: EmailInputWidget.forSignUp(
+                      inputHint: "example@example.com",controller: emailController,
+                    )),
+                  ],
+                ),
+                const SizedBox(
+                  height: 5,
+                ),
+                Column(
+                  children: [
+                    Container(
+                        alignment: Alignment.topLeft,
+                        padding: const EdgeInsets.only(left: 50, bottom: 10),
+                        child: const Text("Phone Number",
+                            style: TextStyle(
+                              color: AppColors.black,
+                              fontSize: 18,
+                            ))),
+                    Center(
+                        child: PhoneNumWidget.forSignUp(
+                      inputHint: "01228745632",controller: phoneController,
+                    )),
+                  ],
+                ),
+                Column(
+                  children: [
+                    Container(
+                        alignment: Alignment.topLeft,
+                        padding: const EdgeInsets.only(left: 50, top: 10),
+                        child: const Text("Birth Date",
+                            style: TextStyle(
+                              color: AppColors.black,
+                              fontSize: 18,
+                            ))),
+
+
+                            Center(
+                    child: DateWidget(
+                  inputHint: "MM'\'DD'\'YY",
+                  controller: dateC,
+                )),
+                    // SizedBox(
+                    //   width: MediaQuery.of(context).size.width * .8,
+                    //   child: Container(
+                    //     decoration: const BoxDecoration(color: AppColors.white),
+                    //     child: TextField(
+                    //       controller: dateC,
+                    //       onTap: () async {
+                    //         var date = await showDatePicker(
+                    //             context: context,
+                    //             firstDate: DateTime.now(),
+                    //             initialDate: DateTime.now(),
+                    //             lastDate: DateTime.now());
+                    //         var formatedDate = DateFormat.yMd().format(date!);
+                    //         dateC.text = formatedDate.toString();
+                    //       },
+                    //       decoration: InputDecoration(
+                    //           border: OutlineInputBorder(
+                    //               borderRadius: BorderRadius.circular(20)),
+                    //           hintText: 'DD / MM / YYY ',
+                    //           hintStyle: TextStyle(
+                    //               color: AppColors.primaryColor.colors.first)),
+                    //     ),
+                    //   ),
+                    // ),
+                  ],
+                ),
+                Container(
+                  //padding: EdgeInsets.only(left: 50),
+                  alignment: Alignment.center,
+                  child: Column(
+
                     children: [
                       Container(
                           alignment: Alignment.topLeft,
@@ -261,8 +382,39 @@ class SignupScreen extends StatelessWidget {
                       ],
                     ),
                   ),
+
                   const SizedBox(
                     height: 5,
+
+                ),
+                const SizedBox(
+                  height: 5,
+                ),
+                Container(
+                  padding: EdgeInsets.only(
+                      left: MediaQuery.of(context).size.width * .25),
+                  child: Row(
+                    children: [
+                      const Text(
+                        "Already Have Account",
+                        style: TextStyle(color: AppColors.black, fontSize: 15),
+                      ),
+                      const SizedBox(
+                        width: 3,
+                      ),
+                      TextButton(
+                          onPressed: () {
+                            Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>  LoginScreen()));
+                          },
+                          child: Text("Sign in",
+                              style: TextStyle(
+                                  color: AppColors.primaryColor.colors.first,
+                                  fontSize: 15)))
+                    ],
+
                   ),
                   Container(
                     padding: EdgeInsets.only(

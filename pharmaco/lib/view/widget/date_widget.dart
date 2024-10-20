@@ -4,7 +4,7 @@ import 'package:intl/intl.dart';
 import 'package:pharmaco/app_colors.dart';
 
 class DateWidget extends StatefulWidget {
-   DateWidget({super.key,required this.inputHint});
+   DateWidget({super.key,required this.inputHint, TextEditingController? controller});
 final String inputHint;
   final TextEditingController dateC = TextEditingController();
 

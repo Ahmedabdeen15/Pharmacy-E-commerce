@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pharmaco/view/screen/account_password/reset_password_sccreen.dart';
 import 'package:pharmaco/view/splash/splash_home.dart';
 
 void main() {
