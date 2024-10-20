@@ -36,9 +36,8 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
     final prefs = await SharedPreferences.getInstance();
     setState(() {
       _email = prefs.getString('email') ?? '';
-    _phone = prefs.getString('phone') ?? '';
+      _phone = prefs.getString('phone') ?? '';
     });
-    
   }
 
   PaymentMethod selectedMethod = PaymentMethod.cash;
@@ -404,13 +403,6 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                   ],
                                 ),
                               ],
-                            ),
-                          ),
-                          Text(
-                            "Total: \$${widget.localCart.totalPrices.toStringAsFixed(2)}",
-                            style: const TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.w600,
                             ),
                           ),
                         ],

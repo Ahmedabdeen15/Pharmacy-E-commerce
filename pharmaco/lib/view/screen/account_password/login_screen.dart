@@ -11,33 +11,36 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginScreen extends StatelessWidget {
-   LoginScreen({super.key});
+  LoginScreen({super.key});
 
- final TextEditingController emailController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-  
-void checkLogin(String inputEmail, String inputPassword, BuildContext context) async {
-  SharedPreferences prefs = await SharedPreferences.getInstance();
-  String? storedEmail = prefs.getString('user_email');
-  String? storedPassword = prefs.getString('user_password');
 
-  if (inputEmail == storedEmail && inputPassword == storedPassword) {
-    // Login successful, proceed to the next screen
-    print('Login Successful');
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(builder: (context) => MainScreen()), // Navigate to the home screen
-    );
-  } else {
-    // Login failed, show an error message using ScaffoldMessenger
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text('Login Failed. Please check your credentials.'),
-        backgroundColor: Colors.red, // Error message color
-      ),
-    );
+  void checkLogin(
+      String inputEmail, String inputPassword, BuildContext context) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String? storedEmail = prefs.getString('email');
+    String? storedPassword = prefs.getString('password');
+
+    if (inputEmail == storedEmail && inputPassword == storedPassword) {
+      // Login successful, proceed to the next screen
+      print('Login Successful');
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+            builder: (context) =>
+                const MainScreen()), // Navigate to the home screen
+      );
+    } else {
+      // Login failed, show an error message using ScaffoldMessenger
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Login Failed. Please check your credentials.'),
+          backgroundColor: Colors.red, // Error message color
+        ),
+      );
+    }
   }
-}
 
   @override
   Widget build(BuildContext context) {
@@ -52,20 +55,20 @@ void checkLogin(String inputEmail, String inputPassword, BuildContext context) a
               children: [
                 Container(
                     alignment: Alignment.topLeft,
-                    padding: EdgeInsets.only(left: 50),
+                    padding: const EdgeInsets.only(left: 50),
                     child: Text("Welcome",
                         style: TextStyle(
                             color: AppColors.primaryColor.colors.first,
                             fontSize: 22,
                             fontWeight: FontWeight.bold))),
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
                 Column(
                   children: [
                     Container(
                         alignment: Alignment.topLeft,
-                        padding: EdgeInsets.only(left: 50, bottom: 10),
+                        padding: const EdgeInsets.only(left: 50, bottom: 10),
                         child: const Text("Email",
                             style: TextStyle(
                               color: AppColors.black,
@@ -73,35 +76,39 @@ void checkLogin(String inputEmail, String inputPassword, BuildContext context) a
                             ))),
                     Center(
                         child: EmailInputWidget(
-                      inputHint: "example@example.com", controller: emailController,
+                      inputHint: "example@example.com",
+                      controller: emailController,
                     )),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
                 Column(
                   children: [
                     Container(
                         alignment: Alignment.topLeft,
-                        padding: EdgeInsets.only(left: 50, bottom: 10),
-                        child: Text("Password",
+                        padding: const EdgeInsets.only(left: 50, bottom: 10),
+                        child: const Text("Password",
                             style: TextStyle(
                               color: AppColors.black,
                               fontSize: 18,
                             ))),
-                    PasswordWidget(controller: passwordController,),
+                    PasswordWidget(
+                      controller: passwordController,
+                    ),
                     TextButton(
                         onPressed: () {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
                                   builder: (context) =>
-                                       ResetPasswordSccreen()));
+                                      const ResetPasswordSccreen()));
                         },
                         child: Container(
                             alignment: Alignment.topRight,
-                            padding: EdgeInsets.only(right: 30, bottom: 20),
+                            padding:
+                                const EdgeInsets.only(right: 30, bottom: 20),
                             child: Text("forget Password",
                                 style: TextStyle(
                                   color: AppColors.primaryColor.colors.first,
@@ -117,18 +124,19 @@ void checkLogin(String inputEmail, String inputPassword, BuildContext context) a
                         minHeight: MediaQuery.of(context).size.height * .05,
                         fontSize: 20,
                         onPressed: () {
-                           String inputEmail = emailController.text;  // Get the email entered by the user
-                            String inputPassword = passwordController.text;  // Get the password entered by the user
+                          String inputEmail = emailController
+                              .text; // Get the email entered by the user
+                          String inputPassword = passwordController
+                              .text; // Get the password entered by the user
                           checkLogin(inputEmail, inputPassword, context);
-
                         }),
-                    Text(
+                    const Text(
                       "or sign up with",
                       style: TextStyle(fontSize: 15, color: AppColors.black),
                     )
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 Container(
@@ -141,13 +149,13 @@ void checkLogin(String inputEmail, String inputPassword, BuildContext context) a
                         backgroundColor: AppColors.primaryColor.colors.first,
                         child: IconButton(
                             onPressed: () {},
-                            icon: Icon(
+                            icon: const Icon(
                               FontAwesomeIcons.google,
                               size: 20,
                               color: AppColors.white,
                             )),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 10,
                       ),
                       CircleAvatar(
@@ -155,7 +163,7 @@ void checkLogin(String inputEmail, String inputPassword, BuildContext context) a
                           backgroundColor: AppColors.primaryColor.colors.first,
                           child: IconButton(
                               onPressed: () {},
-                              icon: Icon(
+                              icon: const Icon(
                                 Icons.facebook,
                                 size: 25,
                                 color: AppColors.white,
@@ -163,7 +171,7 @@ void checkLogin(String inputEmail, String inputPassword, BuildContext context) a
                     ],
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 5,
                 ),
                 Container(
@@ -171,11 +179,11 @@ void checkLogin(String inputEmail, String inputPassword, BuildContext context) a
                       left: MediaQuery.of(context).size.width * .25),
                   child: Row(
                     children: [
-                      Text(
+                      const Text(
                         "Don't have an account?",
                         style: TextStyle(color: AppColors.black, fontSize: 15),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 3,
                       ),
                       TextButton(
