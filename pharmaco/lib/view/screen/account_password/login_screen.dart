@@ -66,7 +66,7 @@ void checkLogin(String inputEmail, String inputPassword, BuildContext context) a
                     Container(
                         alignment: Alignment.topLeft,
                         padding: EdgeInsets.only(left: 50, bottom: 10),
-                        child: const Text("Email or Mobile Number",
+                        child: const Text("Email",
                             style: TextStyle(
                               color: AppColors.black,
                               fontSize: 18,
