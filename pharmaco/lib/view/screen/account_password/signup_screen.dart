@@ -272,7 +272,7 @@ class SignupScreen extends StatelessWidget {
                                 MaterialPageRoute(
                                     builder: (context) =>  LoginScreen()));
                           },
-                          child: Text("Log in",
+                          child: Text("Login",
                               style: TextStyle(
                                   color: AppColors.primaryColor.colors.first,
                                   fontSize: 15)))

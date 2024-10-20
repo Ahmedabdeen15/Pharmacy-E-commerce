@@ -97,7 +97,7 @@ void checkLogin(String inputEmail, String inputPassword, BuildContext context) a
                               context,
                               MaterialPageRoute(
                                   builder: (context) =>
-                                      const ResetPasswordSccreen()));
+                                       ResetPasswordSccreen()));
                         },
                         child: Container(
                             alignment: Alignment.topRight,
@@ -120,7 +120,7 @@ void checkLogin(String inputEmail, String inputPassword, BuildContext context) a
                            String inputEmail = emailController.text;  // Get the email entered by the user
                             String inputPassword = passwordController.text;  // Get the password entered by the user
                           checkLogin(inputEmail, inputPassword, context);
-                            
+
                         }),
                     Text(
                       "or sign up with",
