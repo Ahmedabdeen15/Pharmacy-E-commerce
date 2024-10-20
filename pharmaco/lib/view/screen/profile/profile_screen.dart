@@ -8,12 +8,28 @@ import 'package:pharmaco/view/screen/profile/edit_profile_screen.dart';
 import 'package:pharmaco/view/screen/profile/passwrd_mamager_screen.dart';
 import 'package:pharmaco/view/screen/profile/setting_screen.dart';
 import 'package:pharmaco/view/widget/custom_app_bar.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    Future<String> _getName() async {
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      return prefs.getString('name') ?? "";
+    }
+
+    Future<String> _getEmail() async {
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      return prefs.getString('email') ?? "";
+    }
+
+    Future<String> _getPhone() async {
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      return prefs.getString('phone') ?? "";
+    }
+
     return Scaffold(
       appBar: const CustomAppBarr(
         title: " Profile ",
@@ -26,10 +42,10 @@ class ProfileScreen extends StatelessWidget {
               height: 200,
               color: AppColors.primaryColor.colors.last,
               // decoration: BoxDecoration(gradient: AppColors.primaryColor),
-              child: const Row(
+              child:  Row(
                 //mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  CircleAvatar(
+                  const CircleAvatar(
                     radius: 70,
                     child: Icon(
                       Icons.person,
@@ -37,41 +53,73 @@ class ProfileScreen extends StatelessWidget {
                       color: Color.fromARGB(255, 0, 186, 211),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                     width: 10,
                   ),
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(
-                        'Mohamed Thrwat',
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
+                      FutureBuilder<String>(
+                        future: _getName(),
+                        builder: (context, snapshot) {
+                          if (snapshot.hasData) {
+                            return Text(
+                              snapshot.data!,
+                              style: const TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                                color: AppColors.white,
+                              ),
+                            );
+                          } else {
+                            return const CircularProgressIndicator();
+                          }
+                        },
                       ),
-                      SizedBox(
+
+                      
+                      const SizedBox(
                         height: 10,
                         width: 10,
                       ),
-                      Text(
-                        '0128010131',
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
+
+                      FutureBuilder<String>(
+                        future: _getPhone(),
+                        builder: (context, snapshot) {
+                          if (snapshot.hasData) {
+                            return Text(
+                              snapshot.data!,
+                              style: const TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                                color: AppColors.white,
+                              ),
+                            );
+                          } else {
+                            return const CircularProgressIndicator();
+                          }
+                        },
                       ),
-                      Text(
-                        'example..@example.com',
-                        style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
+                      
+                       FutureBuilder<String>(
+                        future: _getEmail(),
+                        builder: (context, snapshot) {
+                          if (snapshot.hasData) {
+                            return Text(
+                              snapshot.data!,
+                              style: const TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                                color: AppColors.white,
+                              ),
+                            );
+                          } else {
+                            return const CircularProgressIndicator();
+                          }
+                        },
                       ),
+
                     ],
                   ),
                 ],

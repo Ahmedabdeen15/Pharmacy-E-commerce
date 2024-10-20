@@ -7,6 +7,7 @@ import 'package:pharmaco/view/widget/checkout_card.dart';
 import 'package:pharmaco/view/widget/custom_app_bar.dart';
 import 'package:pharmaco/view/widget/generic_flexible_button.dart';
 import 'package:pharmaco/view/widget/payment_method_card.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 enum PaymentMethod { credit, cash }
 
@@ -22,6 +23,24 @@ class CheckoutScreen extends StatefulWidget {
 }
 
 class _CheckoutScreenState extends State<CheckoutScreen> {
+  String? _email;
+  String? _phone;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadInitialData();
+  }
+
+  Future<void> _loadInitialData() async {
+    final prefs = await SharedPreferences.getInstance();
+    setState(() {
+      _email = prefs.getString('email') ?? '';
+    _phone = prefs.getString('phone') ?? '';
+    });
+    
+  }
+
   PaymentMethod selectedMethod = PaymentMethod.cash;
   void selectPaymentMethod(PaymentMethod method) {
     setState(() {
@@ -178,9 +197,9 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                               const SizedBox(
                                 width: 20,
                               ),
-                              const Text(
-                                "example@example.com",
-                                style: TextStyle(
+                              Text(
+                                _email ?? "example@example.com",
+                                style: const TextStyle(
                                   fontSize: 14,
                                   fontWeight: FontWeight.w400,
                                 ),
@@ -229,9 +248,9 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                               const SizedBox(
                                 width: 20,
                               ),
-                              const Text(
-                                "+02 01511111100",
-                                style: TextStyle(
+                              Text(
+                                _phone ?? "+02 01511111100",
+                                style: const TextStyle(
                                   fontSize: 14,
                                   fontWeight: FontWeight.w400,
                                 ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pharmaco/app_colors.dart';
+import 'package:pharmaco/view/screen/main_screen.dart';
 import 'package:pharmaco/view/widget/custom_app_bar.dart';
 import 'package:pharmaco/view/widget/generic_flexible_button.dart';
 
@@ -90,7 +91,11 @@ class _PaymentSuccessScreenState extends State<PaymentSuccessScreen> {
               minWidth: MediaQuery.sizeOf(context).width * 0.8,
               minHeight: 50,
               fontSize: 24,
-              onPressed: () {}),
+              onPressed: () {Navigator.pushAndRemoveUntil(
+  context,
+  MaterialPageRoute(builder: (context) => MainScreen()),
+  (Route<dynamic> route) => false, // This condition ensures all previous routes are removed
+);}),
           const SizedBox(
             height: 50,
           ),

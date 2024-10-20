@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:pharmaco/app_colors.dart';
+import 'package:pharmaco/view/screen/account_password/reset_password_sccreen.dart';
 import 'package:pharmaco/view/screen/profile/alarm_delete_account.dart';
 import 'package:pharmaco/view/screen/profile/notification_setting_screen.dart';
-import 'package:pharmaco/view/screen/profile/passwrd_mamager_screen.dart';
 import 'package:pharmaco/view/widget/custom_app_bar.dart';
 
 class SettingScreen extends StatelessWidget {
@@ -91,7 +91,7 @@ class SettingScreen extends StatelessWidget {
                 const Spacer(),
               
                     IconButton(onPressed: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => const PasswordManagerScreen() ));
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => const ResetPasswordSccreen() ));
                     },
                     icon: Icon(Icons.arrow_forward_ios),
                     color: AppColors.black,

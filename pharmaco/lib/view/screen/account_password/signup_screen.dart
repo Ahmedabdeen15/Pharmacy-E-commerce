@@ -2,14 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:pharmaco/app_colors.dart';
 import 'package:pharmaco/view/screen/account_password/login_screen.dart';
-import 'package:pharmaco/view/screen/account_password/verify_your_account_screen.dart';
 import 'package:pharmaco/view/widget/custom_app_bar.dart';
+import 'package:pharmaco/view/widget/date_widget.dart';
 import 'package:pharmaco/view/widget/email_input_widget.dart';
 import 'package:pharmaco/view/widget/generic_flexible_button.dart';
 import 'package:pharmaco/view/widget/input_name_widget.dart';
 import 'package:pharmaco/view/widget/password_widget.dart';
 import 'package:pharmaco/view/widget/phone_num_widget.dart';
-import 'package:intl/intl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SignupScreen extends StatelessWidget {
@@ -127,30 +126,37 @@ class SignupScreen extends StatelessWidget {
                               color: AppColors.black,
                               fontSize: 18,
                             ))),
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width * .8,
-                      child: Container(
-                        decoration: const BoxDecoration(color: AppColors.white),
-                        child: TextField(
-                          controller: dateC,
-                          onTap: () async {
-                            var date = await showDatePicker(
-                                context: context,
-                                firstDate: DateTime.now(),
-                                initialDate: DateTime.now(),
-                                lastDate: DateTime.now());
-                            var formatedDate = DateFormat.yMd().format(date!);
-                            dateC.text = formatedDate.toString();
-                          },
-                          decoration: InputDecoration(
-                              border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(20)),
-                              hintText: 'DD / MM / YYY ',
-                              hintStyle: TextStyle(
-                                  color: AppColors.primaryColor.colors.first)),
-                        ),
-                      ),
-                    ),
+
+
+                            Center(
+                    child: DateWidget(
+                  inputHint: "MM'\'DD'\'YY",
+                  controller: dateC,
+                )),
+                    // SizedBox(
+                    //   width: MediaQuery.of(context).size.width * .8,
+                    //   child: Container(
+                    //     decoration: const BoxDecoration(color: AppColors.white),
+                    //     child: TextField(
+                    //       controller: dateC,
+                    //       onTap: () async {
+                    //         var date = await showDatePicker(
+                    //             context: context,
+                    //             firstDate: DateTime.now(),
+                    //             initialDate: DateTime.now(),
+                    //             lastDate: DateTime.now());
+                    //         var formatedDate = DateFormat.yMd().format(date!);
+                    //         dateC.text = formatedDate.toString();
+                    //       },
+                    //       decoration: InputDecoration(
+                    //           border: OutlineInputBorder(
+                    //               borderRadius: BorderRadius.circular(20)),
+                    //           hintText: 'DD / MM / YYY ',
+                    //           hintStyle: TextStyle(
+                    //               color: AppColors.primaryColor.colors.first)),
+                    //     ),
+                    //   ),
+                    // ),
                   ],
                 ),
                 Container(
@@ -272,7 +278,7 @@ class SignupScreen extends StatelessWidget {
                                 MaterialPageRoute(
                                     builder: (context) =>  LoginScreen()));
                           },
-                          child: Text("Sign Up",
+                          child: Text("Sign in",
                               style: TextStyle(
                                   color: AppColors.primaryColor.colors.first,
                                   fontSize: 15)))
