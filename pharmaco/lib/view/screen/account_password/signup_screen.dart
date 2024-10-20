@@ -167,90 +167,6 @@ class SignupScreen extends StatelessWidget {
                       // ),
                     ],
                   ),
-                  Container(
-                    //padding: EdgeInsets.only(left: 50),
-                    alignment: Alignment.center,
-                    child: Column(
-                
-                      children: [
-                        Container(
-                            alignment: Alignment.topLeft,
-                            padding: const EdgeInsets.only(left: 50, bottom: 10),
-                            child: const Text("Full Name",
-                                style: TextStyle(
-                                  color: AppColors.black,
-                                  fontSize: 18,
-                                ))),
-                        Center(
-                            child: InputNameWidget.forSignUp(
-                          inputHint: "Ahmed Ali",controller:nameController ,
-                        )),
-                      ],
-                    ),),
-                    const SizedBox(
-                      height: 5,
-                  ),
-                    Column(
-                      children: [
-                        Container(
-                            alignment: Alignment.topLeft,
-                            padding: const EdgeInsets.only(left: 50, bottom: 10),
-                            child: const Text("Password",
-                                style: TextStyle(
-                                  color: AppColors.black,
-                                  fontSize: 18,
-                                ))),
-                         PasswordWidget.forSignUp(controller: passwordController,),
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 5,
-                    ),
-                    Column(
-                      children: [
-                        Container(
-                            alignment: Alignment.topLeft,
-                            padding: const EdgeInsets.only(left: 50, bottom: 10),
-                            child: const Text("Email ",
-                                style: TextStyle(
-                                  color: AppColors.black,
-                                  fontSize: 18,
-                                ))),
-                        Center(
-                            child: EmailInputWidget.forSignUp(
-                          inputHint: "example@example.com",controller: emailController,
-                        )),
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 5,
-                    ),
-                    Column(
-                      children: [
-                        Container(
-                            alignment: Alignment.topLeft,
-                            padding: const EdgeInsets.only(left: 50, bottom: 10),
-                            child: const Text("Phone Number",
-                                style: TextStyle(
-                                  color: AppColors.black,
-                                  fontSize: 18,
-                                ))),
-                        Center(
-                            child: PhoneNumWidget.forSignUp(
-                          inputHint: "01228745632",controller: phoneController,
-                        )),
-                      ],
-                    ),
-                    Column(
-                      children: [
-                        Container(
-                            alignment: Alignment.topLeft,
-                            padding: const EdgeInsets.only(left: 50, top: 10),
-                            child: const Text("Birth Date",
-                                style: TextStyle(
-                                  color: AppColors.black,
-                                  fontSize: 18,
-                                ))),
                         SizedBox(
                           width: MediaQuery.of(context).size.width * .8,
                           child: Container(
@@ -447,11 +363,11 @@ class SignupScreen extends StatelessWidget {
                 ),
               ],
             ),
-          ]),
+          ),
         ),
       ),
       ),
-    ),
+    
     );
   }
 }
