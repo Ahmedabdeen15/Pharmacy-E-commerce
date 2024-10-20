@@ -19,7 +19,7 @@ class PasswordManagerScreen extends StatelessWidget {
             SizedBox(height: 10,),
             PasswordWidget(),
             TextButton(onPressed: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => const ResetPasswordSccreen() ));
+                        Navigator.push(context, MaterialPageRoute(builder: (context) =>  ResetPasswordSccreen() ));
                     }, child:Container(alignment:Alignment.topRight ,
                      padding: EdgeInsets.only(right: 30,bottom: 20),child: Text("Forget Password",style: TextStyle(color: AppColors.primaryColor.colors.first,fontSize: 10,))) ),
 

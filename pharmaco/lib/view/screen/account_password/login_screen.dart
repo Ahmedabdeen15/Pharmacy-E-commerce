@@ -24,13 +24,21 @@ void checkLogin(String inputEmail, String inputPassword, BuildContext context) a
   if (inputEmail == storedEmail && inputPassword == storedPassword) {
     // Login successful, proceed to the next screen
     print('Login Successful');
-    // Navigate to the home screen or dashboard
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => MainScreen()), // Navigate to the home screen
+    );
   } else {
-    // Login failed, show an error message
-    print('Login Failed');
-    // Show an error message to the user (e.g., using a snackbar or dialog)
+    // Login failed, show an error message using ScaffoldMessenger
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text('Login Failed. Please check your credentials.'),
+        backgroundColor: Colors.red, // Error message color
+      ),
+    );
   }
 }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -89,7 +97,7 @@ void checkLogin(String inputEmail, String inputPassword, BuildContext context) a
                               context,
                               MaterialPageRoute(
                                   builder: (context) =>
-                                      const ResetPasswordSccreen()));
+                                       ResetPasswordSccreen()));
                         },
                         child: Container(
                             alignment: Alignment.topRight,
@@ -112,11 +120,7 @@ void checkLogin(String inputEmail, String inputPassword, BuildContext context) a
                            String inputEmail = emailController.text;  // Get the email entered by the user
                             String inputPassword = passwordController.text;  // Get the password entered by the user
                           checkLogin(inputEmail, inputPassword, context);
-                           Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                       MainScreen()));
+
                         }),
                     Text(
                       "or sign up with",
