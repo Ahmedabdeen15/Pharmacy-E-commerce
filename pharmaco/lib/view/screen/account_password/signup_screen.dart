@@ -167,30 +167,6 @@ class SignupScreen extends StatelessWidget {
                       // ),
                     ],
                   ),
-                        SizedBox(
-                          width: MediaQuery.of(context).size.width * .8,
-                          child: Container(
-                            decoration: const BoxDecoration(color: AppColors.white),
-                            child: TextField(
-                              controller: dateC,
-                              onTap: () async {
-                                var date = await showDatePicker(
-                                    context: context,
-                                    firstDate: DateTime.now(),
-                                    initialDate: DateTime.now(),
-                                    lastDate: DateTime.now());
-                                var formatedDate = DateFormat.yMd().format(date!);
-                                dateC.text = formatedDate.toString();
-                              },
-                              decoration: InputDecoration(
-                                  border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(20)),
-                                  hintText: 'DD / MM / YYY ',
-                                  hintStyle: TextStyle(
-                                      color: AppColors.primaryColor.colors.first)),
-                            ),
-                          ),
-                        ),
                       ],
                     ),
                     Container(
